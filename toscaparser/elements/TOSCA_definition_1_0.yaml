@@ -63,7 +63,8 @@ node_types:
           type: tosca.datatypes.network.PortInfo
     capabilities:
         host:
-           type: tosca.capabilities.Container
+           type: tosca.capabilities.Compute
+           valid_source_types: [tosca.nodes.SoftwareComponent]
         binding:
            type: tosca.capabilities.network.Bindable
         os:
@@ -727,6 +728,15 @@ capability_types:
         description: >
           The optional identifier of an existing storage volume (resource)
           that should be used to create the container's mount point(s) on.
+
+  tosca.capabilities.Compute:
+    derived_from: tosca.capabilities.Container
+    properties:
+      name:
+        type: string
+        required: false
+      num_cpus:
+        type: integer
 
 ##########################################################################
  # Interfaces Type.

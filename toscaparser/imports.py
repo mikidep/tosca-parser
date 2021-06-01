@@ -112,6 +112,7 @@ class ImportsLoader(object):
         for type_def in self.type_definition_list:
             outer_custom_types = custom_type.get(type_def)
             if outer_custom_types:
+                outer_custom_types = outer_custom_types.copy()
                 if type_def == "imports":
                     for i in self.custom_defs.get('imports', []):
                         if i not in outer_custom_types:
